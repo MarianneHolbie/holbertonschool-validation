@@ -1,5 +1,5 @@
 #!/bin/bash
-docker run --rm --tty --interactive --volume=$(pwd):/app --workdir=/app ubuntu:18.04 /bin/bash
+
 # same installation of GoHugo and Make
 apt-get update && apt-get install -y hugo make
 # download/install minimal version to use template ananke
