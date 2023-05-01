@@ -1,6 +1,7 @@
 .POSIX:
 DESTDIR=dist
 HUGO_VERSION=0.84.0
+HUGO_EXTENDED=1
 
 
 # Below are PHONY targets
