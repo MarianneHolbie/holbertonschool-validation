@@ -20,6 +20,7 @@ build:
 	@echo "Check Hugo version"
 	@if ! [ -x "$$(command -v hugo)"]; then \
 		echo "? Getting Hugo";\
+		sudo apt install wget;\
 		wget -q -P tmp/ https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.tar.gz;\
 		tar xf tmp/hugo_extended_0.84.0_Linux-64bit.tar.gz -C tmp/;\
 		sudo mv -f tmp/hugo /usr/bin/;\
