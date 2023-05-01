@@ -19,7 +19,9 @@ build:
 # check version of Hugo and install if not good
 # build website in the DESTDIR directory
 	@echo "Check Hugo version"
-	@echo [ -x "$$(hugo version)"];
+	curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
+	apt install ./hugo.deb
+	rm hugo.deb
 	@echo "Generating site"
 	hugo -c $(DESTDIR)
 
