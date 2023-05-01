@@ -39,5 +39,5 @@ post:
 # sed 's|<search regex>|<replacement>|' <input file>
 
 	@echo "Create new blog post"
-	hugo new ./posts/$(POST_NAME).md 
+	hugo new ./content/posts/$(POST_NAME).md 
 	sed 's|title:*|title: "$(POST_TITLE)"|' ./content/posts/$(POST_NAME).md
