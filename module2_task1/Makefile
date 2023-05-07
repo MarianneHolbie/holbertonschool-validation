@@ -1,7 +1,7 @@
 
 
 help: ## Show command help
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/\##//'
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//''
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
 # build execute only if make lint success : &&
@@ -13,10 +13,10 @@ run: ## Run the application in background and write logs in awesome-api.log
 	@./awesome-api >./awesome-api.log 2>&1 &
 
 stop: ## Stop the application
-	@kill "$(shell pgrep awesome-api)" 2>&1
+	@kill "$(shell pgrep awesome-api)" 2>/dev/null
 
 clean: ## Stop the application and delete awesome-api and awesome.log
-	@make stop && rm -rf awesome-api awesome.log
+	@make stop && rm -rf awesome-api awesome-api.log
 
 test: ## Test to ensure expected beahaviour
 	@curl http://localhost:9999
