@@ -7,7 +7,7 @@ help: ## Show command help
 # build execute only if make lint success : &&
 build: ## Compile source code of the application to a binary name awesome.api
 	@go get github.com/gorilla/mux
-	@make lint >/dev/null 2>&1 && @go build || exit 0
+	@make lint >/dev/null 2>&1 && go build || exit 0
 
 run: ## Run the application in background and write logs in awesome-api.log
 	@./awesome-api >./awesome-api.log 2>&1 &
@@ -15,9 +15,8 @@ run: ## Run the application in background and write logs in awesome-api.log
 stop: ## Stop the application
 	@kill "$(shell pgrep awesome-api)" 2>&1
 
-clean: ## Stop the application and delete awesome-api and awesome-api.log
-	@make stop
-	@rm -rf awesome-api awesome-api.log
+clean: ## Stop the application and delete awesome-api and awesome.log
+	@make stop && rm -rf awesome-api awesome.log
 
 test: ## Test to ensure expected beahaviour
 	@curl http://localhost:9999
