@@ -2,7 +2,7 @@
 
 ## Build an Application using Make
 
-### Prerequisite
+### Prerequisites
 * Golang in v1.15.+
 * NPM v7+ with NodeJS v14.*
 * Python3 with pip module
