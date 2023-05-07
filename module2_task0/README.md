@@ -8,7 +8,7 @@
 * Python3 with pip module
 * golangci-lint
 
-### Project Life-cycle automate with Makefile 
+### Lifecycle
 The life-cycle of this project is the following command:
 
 * ```build```  compile the source code of the application to a binary named ```awesome-api``` (the name ```awesome-api``` comes from the command ```go mod init github.com/<your github handle>/awesome-api```) with the command go build. The first build may takes some times.
