@@ -13,7 +13,7 @@ run: ## Run the application in background and write logs in awesome-api.log
 	@./awesome-api >./awesome-api.log 2>&1 &
 
 stop: ## Stop the application
-	@kill "$(shell pgrep awesome-api)"
+	@kill "$(shell pgrep awesome-api)" 2>&1
 
 clean: ## Stop the application and delete awesome-api and awesome-api.log
 	@make stop
