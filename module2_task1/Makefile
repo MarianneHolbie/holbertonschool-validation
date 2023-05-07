@@ -1,7 +1,7 @@
 
 
 help: ## Show command help
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//''
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/\##//'
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
 # build execute only if make lint success : &&
