@@ -7,7 +7,7 @@ help: ## Show command help
 # build execute only if make lint success : &&
 build: ## Compile source code of the application to a binary name awesome.api
 	@go get github.com/gorilla/mux
-	@make lint >/dev/null 2>&1 && go build || exit 0
+	@make lint >/dev/null 2>&1 && go build || exit -1
 
 run: ## Run the application in background and write logs in awesome-api.log
 	@./awesome-api >./awesome-api.log 2>&1 &
