@@ -14,9 +14,6 @@ build: ## execute Go-Hugo and Golang builds
 
 hugo-build: ## check version of Hugo and install if not good and build website
 
-	curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
-	apt install ./hugo.deb
-	rm hugo.deb
 	@make check && hugo -c $(DESTDIR)
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
