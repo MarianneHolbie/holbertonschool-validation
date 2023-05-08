@@ -35,7 +35,7 @@ hugo-clean: ## remove all file -r (directories and content) -f force ignore none
 	@rm -rf dist/*
 
 go-clean: ## Stop the application and delete awesome-api and awesome.log
-	@make stop && rm -rf awesome-api awesome-api.log coverage-units.out coverage-integrations.out
+	@make stop && rm -rf awesome-api awesome-api.log coverage-units.out coverage-integrations.out go*
 
 post: ## create new post with POST_NAME ans POST_TITLE given
 
