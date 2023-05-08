@@ -94,6 +94,11 @@ To execute the Makefile use the following syntax:
 
 * `integration-tests`: Run Golang integration tests 
 
+* ```run```: Run the application in background by executing the binary ```awesome-api```, and write logs into a file named ```awesome-api.log```
+
+* ```stop```: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application.
+
+
 
 # Story
 Following the previous module situation, you are now able to build and deploy the static website for the company Awesome Inc. in an automated way.
