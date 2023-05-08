@@ -92,6 +92,8 @@ To execute the Makefile use the following syntax:
 
 * `unit-tests`: Run files with the _test.go suffix 
 
+* `integration-tests`: Run Golang integration tests 
+
 
 # Story
 Following the previous module situation, you are now able to build and deploy the static website for the company Awesome Inc. in an automated way.
