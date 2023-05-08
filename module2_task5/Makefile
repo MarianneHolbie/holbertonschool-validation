@@ -55,6 +55,7 @@ stop: ## Stop the application
 
 
 test: ## Test to ensure expected beahaviour
+	-make build
 	@make unit-tests 
 	@make integration-tests
 
