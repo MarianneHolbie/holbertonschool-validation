@@ -55,6 +55,11 @@ func Test_server(t *testing.T) {
 	  responseCode:	400,
 	},
 	{
+	  name:			"without value name",
+	  URI:			"/hello?name",
+	  responseCode:	400,
+	  },
+	{
 	  name:			"name is B212#",
 	  URI:			"/hello?name=B212%23",
 	  responseCode:	200,
@@ -83,6 +88,12 @@ func Test_server(t *testing.T) {
 	  URI:			"/invalid",
 	  responseCode:	404,
 	  body:			"404 page not found\n",
+	},
+	{
+		name:         "No name parameter",
+		URI:          "/hello",
+		responseCode: 200,
+		body:         "Hello there!",
 	},
 
   }

@@ -20,7 +20,7 @@ clean: ## Stop the application and delete awesome-api and awesome.log
 
 test: ## Test to ensure expected beahaviour
 	@make unit-tests 
-	@make integration-tests 
+	@make integration-tests
 
 lint: ## Test lint on the files
 	@golangci-lint run
