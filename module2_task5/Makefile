@@ -10,11 +10,11 @@ help: ## Show command help
 
 build: ## execute Go-Hugo and Golang builds
 	@make clean
-	@make go-build
 	@make hugo-build
+	@make go-build
 
 hugo-build: ## check version of Hugo and install if not good and build website
-
+	@make hugo-clean
 	@make check && hugo -c $(DESTDIR)
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
