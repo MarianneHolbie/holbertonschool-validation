@@ -8,9 +8,9 @@ import (
 )
 
 func Test_HelloHandler(t *testing.T) {
-//   if !testing.Short() {
-//     t.Skip("Flag `-short` absent: skipping Unit Tests.")
-//   }
+  if !testing.Short() {
+    t.Skip("Flag `-short` absent: skipping Unit Tests.")
+  }
 
   tests := []struct {
     name         string
