@@ -9,6 +9,7 @@ help: ## Show command help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/\##//'
 
 build: ## execute Go-Hugo and Golang builds
+	@make clean
 	@make go-build
 	@make hugo-build
 
@@ -18,7 +19,8 @@ hugo-build: ## check version of Hugo and install if not good and build website
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
 # build execute only if make lint success : &&
-go-build: ## Compile source code of the application to a binary name awesome.api
+go-build: ## Compile source code of the application to a binary name awesome-api
+	@go mod init github.com/MarianneHolbie/awesome-api
 	@go get github.com/gorilla/mux
 	@make lint >/dev/null 2>&1 && go build || exit -1
 
@@ -28,7 +30,7 @@ clean: ## execute hugo-clean and go-clean
 
 hugo-clean: ## remove all file -r (directories and content) -f force ignore nonexistent files
 
-	@rm -rf dist/*
+	@rm -rf ./dist
 
 go-clean: ## Stop the application and delete awesome-api and awesome.log
 	@make stop && rm -rf awesome-api awesome-api.log coverage-units.out coverage-integrations.out go*
