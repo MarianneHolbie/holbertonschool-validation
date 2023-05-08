@@ -9,8 +9,8 @@ help: ## Show command help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/\##//'
 
 build: ## execute Go-Hugo and Golang builds
-	@make hugo-build
 	@make go-build
+	@make hugo-build
 
 hugo-build: ## check version of Hugo and install if not good and build website
 
