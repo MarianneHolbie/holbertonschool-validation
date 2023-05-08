@@ -1,4 +1,5 @@
 .POSIX:
+DESTDIR=dist
 HUGO_VERSION=0.84.0
 
 
