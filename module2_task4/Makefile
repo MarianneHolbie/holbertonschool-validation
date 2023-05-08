@@ -1,5 +1,4 @@
 .POSIX:
-DESTDIR=dist
 HUGO_VERSION=0.84.0
 
 
@@ -18,7 +17,7 @@ build: ## check version of Hugo and install if not good and build website
 
 clean: ## remove all file -r (directories and content) -f force ignore nonexistent files
 
-	@cd $(DESTDIR) && rm -rf *
+	@rm -rf dist/*
 
 
 post: ## create new post with POST_NAME ans POST_TITLE given
