@@ -25,6 +25,7 @@ go-build: ## Compile source code of the application to a binary name awesome-api
 	@make lint >/dev/null 2>&1 && go build || exit -1
 
 clean: ## execute hugo-clean and go-clean
+	@make stop
 	@make hugo-clean
 	@make go-clean
 

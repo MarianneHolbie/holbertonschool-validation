@@ -94,9 +94,9 @@ To execute the Makefile use the following syntax:
 
 * `integration-tests`: Run Golang integration tests 
 
-* ```run```: Run the application in background by executing the binary ```awesome-api```, and write logs into a file named ```awesome-api.log```
+* `run`: Run the application in background by executing the binary ```awesome-api```, and write logs into a file named ```awesome-api.log```
 
-* ```stop```: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application.
+* `stop`: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application.
 
 
 
