@@ -9,12 +9,10 @@ help: ## Show command help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/\##//'
 
 build: ## execute Go-Hugo and Golang builds
-	@make clean
 	@make hugo-build
 	@make go-build
 
 hugo-build: ## check version of Hugo and install if not good and build website
-	@make hugo-clean
 	@make check && hugo -c $(DESTDIR)
 
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
@@ -56,7 +54,6 @@ stop: ## Stop the application
 
 
 test: ## Test to ensure expected beahaviour
-	-make build
 	@make unit-tests 
 	@make integration-tests
 
