@@ -18,6 +18,7 @@ hugo-build: ## check version of Hugo and install if not good and build website
 # > (redirige STDOUT) /dev/null(chemin de redirection) 2>&1 (2: STDERR redirection vers là ou est &1: STDOUT)
 # build execute only if make lint success : &&
 go-build: ## Compile source code of the application to a binary name awesome-api
+	@go mod init github.com/MarianneHolbie/awesome-api
 	@go get github.com/gorilla/mux
 	@make lint >/dev/null 2>&1 && go build || exit -1
 
