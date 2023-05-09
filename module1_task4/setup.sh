@@ -9,3 +9,4 @@ apt install ./hugo.deb
 rm hugo.deb
 # test command
 make build
+echo $?
