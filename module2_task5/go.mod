@@ -1,4 +1,4 @@
-module github.com/MarianneHolbie/awesome.api
+module github.com/MarianneHolbie/awesome-api
 
 go 1.20
 
