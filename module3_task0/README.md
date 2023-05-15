@@ -44,6 +44,10 @@ This project needs the following tools / services:
 - [markdownlint-cli](https://intranet.hbtn.io/rltoken/hplwMW8M8BKVQyhDso0pOw) v0.26.0
 - [markdown-link-check](https://intranet.hbtn.io/rltoken/BRJGBHXvkAUKt50KrFOm0A) v3.8.6
 - [Holberton's W3C Validator](https://intranet.hbtn.io/rltoken/ll8gJ8CPoI9tfn1OTDE8rA)
+- [yq](https://intranet.hbtn.io/rltoken/9wlxJjlqCE6XyPa6TQ0RsQ) v4.5.0
+- [shellcheck](https://intranet.hbtn.io/rltoken/7e95a2wDfOHFQGKJqRlHgg) v0.*
+- [yamllint](https://intranet.hbtn.io/rltoken/B1BZ_C_5ANyq005Vd0LWNw) v1.*
+- [jq](https://intranet.hbtn.io/rltoken/pVjsOvuSQavip_1Y4u--4Q) v1.*
 
 
 <h1 align="center"> How to use the make file:
