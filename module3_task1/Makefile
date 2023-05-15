@@ -38,7 +38,6 @@ integration-tests: ## Run integration tests
 	go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 lint:	## Lint go lang code
-	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.52.2
 	golangci-lint run
 
 check:	## Lint markdonw source, check dead links
