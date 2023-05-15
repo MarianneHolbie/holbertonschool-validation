@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: installation Hugo with script
-      - run: cd module3_task1 && ./setup.sh
+        run: cd module3_task1 && ./setup.sh
       - name: Validate Makefile execution make build command
         run: |
           make help
