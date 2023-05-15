@@ -13,7 +13,7 @@ name: module3_task0
 # all action in this workflow
 jobs:
   builds:
-  # name of job
+    # name of job
     name: first job
     # env of execution
     runs-on: ubuntu-latest
@@ -23,4 +23,3 @@ jobs:
       - name: Validate Makefile execution make help command
         run: make help
         working-directory: module3_task0
-        
