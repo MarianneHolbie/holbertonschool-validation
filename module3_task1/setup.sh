@@ -7,5 +7,6 @@ apt install ./hugo.deb
 rm hugo.deb
 
 # download/install linter
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@
 npm install -g markdownlint-cli
 npm install -g markdown-link-check
