@@ -1,0 +1,25 @@
+---
+# Workflow name
+name: module3_task0
+# action who declench workflow
+"on":
+  push:
+    branches:
+      - main
+  # programmate time of workflow execution
+  schedule:
+    - cron: '0 0 * * *'
+
+# all action in this workflow
+jobs:
+  builds:
+  # name of job
+    name: first job
+    # env of execution
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate Makefile execution make help command
+        run: make help
+        working-directory: module3_task0
