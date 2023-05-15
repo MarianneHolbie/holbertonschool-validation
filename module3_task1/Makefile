@@ -6,7 +6,8 @@ COVERAGE=coverage
 HUGO=hugo
 
 build:	## Generate the source code of the application to a binary.
-	$(GO) mod tidy
+	go build
+	hugo > /dev/null 2>&1
 	$(MAKE) check && $(HUGO) && $(GO) build -o $(TARGET)
 
 run:	## Run the application in background by executing the binary.
