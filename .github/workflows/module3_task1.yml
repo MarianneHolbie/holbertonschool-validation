@@ -27,6 +27,6 @@ jobs:
           make help
           make build
           make run
-          make stopcd
+          make stop
           make clean
         working-directory: module3_task1
