@@ -28,6 +28,7 @@ jobs:
         run: |
           make help
           make build
+          make lint
           make run
           make stop
           make clean
