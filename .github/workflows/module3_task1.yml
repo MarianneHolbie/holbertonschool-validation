@@ -16,7 +16,7 @@ jobs:
     # name of job
     name: up-to-date installation system
     # env of execution
-    runs-on: ubuntu 22.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v3
