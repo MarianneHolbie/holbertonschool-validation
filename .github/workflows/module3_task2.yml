@@ -35,9 +35,11 @@ jobs:
 
       - name: packaging
         run: cd module3_task2 && make package
-      
-      - name: archieve ZIP file artifact only if all tests and validation have run successfully
-        if: ${{ github.ref == 'refs/heads/main' }} || ${{ github.ref == 'refs/heads/master' }}
+
+      - name: archieve ZIP file artifact only if all tests
+            and validation have run successfully
+        if: ${{github.ref=='refs/heads/main'}}||
+            ${{github.ref=='refs/heads/master'}}
         uses: actions/upload-artifact@v3
         with:
           name: Saving the zip file
