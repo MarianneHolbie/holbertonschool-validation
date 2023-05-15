@@ -100,6 +100,13 @@ To execute the Makefile use the following syntax:
 
 ## Workflow
 
+* Workflow module3_task 0 : 
+-> Clone the repository,
+-> Use ubuntu-22.04 as the virtual machine.
+-> Position yourself in the correct directory and execute the command make help to validate that the Makefile is present and implements the help target.
+-> This workflow must be triggered:
+		Each time there is new code pushed on your repository,
+		And once per day (whatever time you want).
 
 # Story
 Continuing your journey as a Software Engineer at Awesome Inc., you want to provide early visibility on your work to your colleagues to allow you to iterate on the most important issues or improvements for the company.
