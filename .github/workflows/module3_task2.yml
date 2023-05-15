@@ -34,7 +34,7 @@ jobs:
         working-directory: module3_task2
 
       - name: packaging
-        run: make package
+        run: cd module3_task2 && make package
       
       - name: archieve ZIP file artifact only if all tests and validation have run successfully
         if: ${{ github.ref == 'refs/heads/main' }} || ${{ github.ref == 'refs/heads/master' }}
