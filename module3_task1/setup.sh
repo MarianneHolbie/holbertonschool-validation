@@ -6,3 +6,6 @@ apt install ./hugo.deb
 #remove file after installation
 rm hugo.deb
 
+# download/install linter
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.15.2
+npm install -g markdownlint-cli
