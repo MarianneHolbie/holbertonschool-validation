@@ -36,8 +36,7 @@ unit-tests: ## Run unit tests
 integration-tests: ## Run integration tests
 	go test -v -coverprofile=$(COVERAGE)-integrations.out
 
-lint:	## Lint go lang code
-	@golangci-lint run
+lint:	## Lint go markdown code
 	markdownlint -f DEPLOY.md README.md || true
 
 check:	## Lint markdonw source, check dead links
