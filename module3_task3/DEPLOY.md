@@ -13,3 +13,6 @@ As default logs are written in ```awesome-api.log``` file. If you want change th
 
 ## How to “quickly” verify that the application is running (healthcheck)?
 Use the ```curl localhost:9999/health```
+
+## Release
+A Github Release is created with the ```tag 1.0.0``` and contain archive awesome-website.zip + content of the file DEPLOY.md as text for the release.
