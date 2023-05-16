@@ -1,7 +1,7 @@
 ---
 
 env:
-  GH_TOKEN: ${{ github.token }}
+  GITHUB_TOKEN: ${{ github.token }}
 
 # Workflow name
 name: release_drafter
