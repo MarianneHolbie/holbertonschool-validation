@@ -1,6 +1,6 @@
 ---
 env:
-  GH_TOKEN: ${{ github.token }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 # Workflow name
 name: release_drafter
 "on":
@@ -24,7 +24,7 @@ jobs:
       - name: release drafter
         uses: release-drafter/release-drafter@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           labels: "changelog"
           output: changelog.md
