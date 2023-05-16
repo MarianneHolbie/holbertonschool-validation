@@ -60,6 +60,6 @@ jobs:
           files: |
             awesome-website.zip
             Release.txt
-      # create github relase gh release create [<tag>] [<files>...]
+      # create github release gh release create [<tag>] [<files>...]
       - run: gh release create v1.0.0 --title "v1.0.0"
             --notes Release.txt 2>/dev/null || echo "OK"
