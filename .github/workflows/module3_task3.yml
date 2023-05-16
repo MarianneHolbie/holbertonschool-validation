@@ -35,7 +35,7 @@ jobs:
         working-directory: module3_task3
 
       - name: packaging
-        run: cd module3_task2 && make package
+        run: cd module3_task3 && make package
 
       - name: tests
         run: |
