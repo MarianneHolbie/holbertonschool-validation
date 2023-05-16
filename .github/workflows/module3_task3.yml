@@ -60,6 +60,12 @@ jobs:
           files: |
             awesome-website.zip
             Release.txt
+          body: |
+            ## What is in the archive and how to unarchive it?
+            ## What are the commands to start and stop the application?
+            ## How to customize where the application logs are written?
+            ## How to “quickly” verify that the application is running?
+            ## Create a release with the archive triggered by a tag
       # create github release gh release create [<tag>] [<files>...]
       - run: gh release create v1.0.0 --title "v1.0.0"
             --notes Release.txt 2>/dev/null || echo "OK"
