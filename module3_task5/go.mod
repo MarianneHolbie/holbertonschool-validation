@@ -1,4 +1,4 @@
-module github.com/MairanneHolbie/holbertonschool-validation/module3_task3
+module github.com/MairanneHolbie/holbertonschool-validation/module3_task5
 
 go 1.20
 
