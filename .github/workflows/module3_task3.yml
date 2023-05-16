@@ -1,0 +1,62 @@
+---
+# Workflow name
+name: module3_task3
+# action who declench workflow
+"on":
+  push:
+    tags: "1.0.0"
+    branches:
+      - main
+  # programmate time of workflow execution
+  schedule:
+    - cron: '0 0 * * *'
+
+# all action in this workflow
+jobs:
+  builds:
+    # name of job
+    name: up-to-date installation system
+    # env of execution
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: installation Hugo with script
+        run: cd module3_task3 && ./setup.sh
+
+      - name: Validate Makefile execution make build command
+        run: |
+          make help
+          make build
+          make lint
+          make run
+          make stop
+          make clean
+        working-directory: module3_task3
+
+      - name: packaging
+        run: cd module3_task2 && make package
+
+      - name: tests
+        run: |
+          cd module3_task3/ && make test
+
+      - name: archieve ZIP file artifact only if all tests sucess
+        if: ${{github.ref=='refs/heads/main'}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saving the zip file
+          path: |
+            module3_task3/awesome-website.zip
+
+      - name: construct Release.txt
+        run: cat ./module3_task3/DEPLOY.md > Release.txt
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/1.0.0')
+        with:
+          files: |
+            awesome-website.zip
+            Release.txt
