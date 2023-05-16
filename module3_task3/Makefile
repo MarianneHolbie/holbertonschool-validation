@@ -47,6 +47,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	python3 w3c_validator.py dist/index.html || true
 
 package:	## Produce awesome-website.zip containing awesome-api and dist directory
+	@hugo
 	zip -FSr awesome-website.zip . -i dist/ awesome-api
 
 help:	## Show this help usage.
