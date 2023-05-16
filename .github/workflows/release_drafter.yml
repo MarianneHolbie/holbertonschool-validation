@@ -24,3 +24,4 @@ jobs:
         with:
           labels: "changelog"
           output: changelog.md
+          github-token: ${{ secrets.GITHUB_TOKEN }}
