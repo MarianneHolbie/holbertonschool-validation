@@ -16,7 +16,7 @@ name: release_drafter
 
 jobs:
   update_release_draft:
-    permisions: write-all
+    permissions: write-all
     # name of job
     name: release drafter execution
     # env of execution
@@ -24,8 +24,7 @@ jobs:
     steps:
       - name: release drafter
         uses: release-drafter/release-drafter@v5
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          labels: "changelog"
-          output: changelog.md
+        template: |
+          ## What’s Changed
+
+          $CHANGES
