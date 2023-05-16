@@ -6,6 +6,8 @@ name: module3_task3
   push:
     branches:
       - main
+    tags:
+      - "1.0.0"
   # programmate time of workflow execution
   schedule:
     - cron: '0 0 * * *'
