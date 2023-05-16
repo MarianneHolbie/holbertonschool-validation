@@ -1,30 +1,25 @@
 ---
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
 # Workflow name
 name: release_drafter
-"on":
+run-name: release_drafter
+on:
   push:
-    tags: "1.0.1"
-    branche:
-      - main
   pull_request:
     types: [opened, reopened, synchronize]
-    branche:
-      - main
+
+permissions:
+  contents: read
 
 jobs:
   update_release_draft:
-    permissions: write-all
-    # name of job
-    name: release drafter execution
-    # env of execution
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-22.04
     steps:
-      - name: release drafter
-        uses: release-drafter/release-drafter@v5
-        template: |
-          ## What’s Changed
-
-          $CHANGES
+      - uses: release-drafter/release-drafter@v5
+        with:
+          template: |
+            ## Changes
+            $CHANGES
+          name-template: 1.0.1
