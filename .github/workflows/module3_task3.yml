@@ -50,7 +50,7 @@ jobs:
             module3_task3/awesome-website.zip
       # export text of DEPLOY in release.txt file
       - name: construct Release.txt
-        run: cat ./module3_task3/DEPLOY.md > Release.txt
+        run: cat ./module3_task3/DEPLOY.md >> Release.txt
 
       - name: release
         uses: softprops/action-gh-release@v1
