@@ -74,5 +74,3 @@ jobs:
       # create github release gh release create [<tag>] [<files>...]
       - run: gh release create v1.0.1 --title "v1.0.1"
             --notes DEPLOY.md 2>/dev/null || echo "OK"
-      - name: Release drafter
-        uses: release-drafter/release-drafter@v5
