@@ -24,7 +24,7 @@ jobs:
       - name: release drafter
         uses: release-drafter/release-drafter@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           labels: "changelog"
           output: changelog.md
