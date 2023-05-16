@@ -1,6 +1,7 @@
 ---
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 # Workflow name
 name: release_drafter
 "on":
@@ -8,10 +9,10 @@ name: release_drafter
     tags: "1.0.1"
     branche:
       - main
-    pull_request:
-      types: [opened, reopened, synchronize]
-      branche:
-        - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branche:
+      - main
 
 jobs:
   update_release_draft:
