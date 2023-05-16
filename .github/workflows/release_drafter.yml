@@ -1,0 +1,26 @@
+---
+# Workflow name
+name: release_drafter
+"on":
+  push:
+    tags: "1.0.1"
+    branche:
+      - main
+    pull_request:
+      types: [opened, reopened, synchronize]
+      branche:
+        - main
+
+jobs:
+  update_release_draft:
+    permisions: write-all
+    # name of job
+    name: release drafter execution
+    # env of execution
+    runs-on: ubuntu-22.04
+    steps:
+      - name: release drafter
+      - uses: release-drafter/release-drafter@v5
+        with:
+          labels: "changelog"
+          output: changelog.md
