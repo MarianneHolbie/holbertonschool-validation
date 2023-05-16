@@ -15,6 +15,7 @@ name: module3_task3
 # all action in this workflow
 jobs:
   builds:
+    permissions: write-all
     # name of job
     name: up-to-date installation system
     # env of execution
