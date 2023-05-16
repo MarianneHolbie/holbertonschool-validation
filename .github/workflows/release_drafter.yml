@@ -2,7 +2,7 @@
 # Workflow name
 name: release_drafter
 run-name: release_drafter
-on:
+"on":
   push:
   pull_request:
     types: [opened, reopened, synchronize]
@@ -25,4 +25,3 @@ jobs:
           name-template: 1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
