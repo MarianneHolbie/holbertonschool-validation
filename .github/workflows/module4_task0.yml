@@ -35,7 +35,6 @@ jobs:
           make build
           make lint
           make run
-          make stop
           make clean
         working-directory: module4_task0
 
