@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker run --rm --tty --interactive --volume=$(pwd):/app --workdir=/app ubuntu:22.04 /bin/bash
 sudo apt-get update && sudo apt-get install -y make git zip
 
 # download/install minimal version to use template ananke
