@@ -16,3 +16,6 @@ sudo npm install -g markdown-link-check
 # Uninstall go
 sudo apt-get remove golang-go
 rm -rf /usr/local/go
+
+# remove dist directory
+rm -rf dist/ 2> /dev/null
