@@ -11,7 +11,7 @@ HUGO=hugo
 # -w work directory
 
 build:	## Generate the source code of the application to a binary.
-	build-docker
+	make build-docker
 	docker run --rm $(PWD):/app -w /app awesome:build make build-site
 	docker run --rm $(PWD):/app -w /app awesome:build make go build -o $(TARGET)
 
