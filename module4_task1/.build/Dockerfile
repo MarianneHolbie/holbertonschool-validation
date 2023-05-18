@@ -18,6 +18,7 @@ RUN node --version
 RUN npm --version
 RUN curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
 RUN apt install ./hugo.deb
+RUN apt-get update -y && apt-get install -y docker.io
 RUN npm install -g markdownlint-cli
 RUN make build
 RUN make package
