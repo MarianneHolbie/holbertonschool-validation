@@ -18,9 +18,10 @@ name: module4_task1
 jobs:
   builds:
     permissions: write-all
-    # name of job
-    name: up-to-date installation system
     # env of execution
+    defaults:
+      run:
+        working-directory: ./${{ github.workflow }}
     runs-on: ubuntu-22.04
 
     steps:
