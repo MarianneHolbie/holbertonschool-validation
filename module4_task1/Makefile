@@ -16,7 +16,7 @@ build:	## Generate the source code of the application to a binary.
 	docker run --rm $(PWD):/app -w /app awesome:build make go build -o $(TARGET)
 
 build-docker:	## Build docker image awesome:build
-	docker build -t awesome:build ./.build
+	docker build -t awesome:build .build
 
 build-site: ## Build the website
 	hugo . dist
