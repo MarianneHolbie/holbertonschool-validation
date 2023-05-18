@@ -1,7 +1,7 @@
 # parent image
 FROM golang:1.15.8-buster
 # To set the working directory for any commands that follow in the Dockerfile.
-WORKDIR /module4_task0
+WORKDIR /module4_task1
 # To copy over files or directories from a specific location.
 COPY . .
 # To install any applications and packages required for your container.
