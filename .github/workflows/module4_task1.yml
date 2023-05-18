@@ -24,14 +24,15 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+      # clone repo
       - uses: actions/checkout@v3
 
-      - name: docker run
+      # docker image
+      - name: create docker image
+        run: make build-docker
+
+      - name: test Makefile
         run: |
-          cd module4_task1/
-          docker build name:my-app
-          docker run -d my-app
-          ./setup.sh
           make help
           make build
           make lint
