@@ -28,7 +28,7 @@ jobs:
 
       - name: docker run
         run: |
-          cd module4_task1
+          cd module4_task1/
           docker build name:my-app
           docker run -d my-app
           ./setup.sh
