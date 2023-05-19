@@ -55,10 +55,8 @@ jobs:
         with:
           name: Saving the zip file
           path: |
-            module4_task1/awesome-website.zip
-      # export text of DEPLOY in release.txt file
-      - name: construct Release.txt
-        run: cat ./module4_task1/DEPLOY.md >> Release.txt
+            ${{ github.workflow }}/awesome-website.zip
+
 
       - name: release
         uses: softprops/action-gh-release@v1
@@ -66,8 +64,8 @@ jobs:
         with:
 
           files: |
-            awesome-website.zip
-            DEPLOY.md
+            ${{ github.workflow }}/awesome-website.zip
+            ${{ github.workflow }}/DEPLOY.md
           body: |
             ## What is in the archive and how to unarchive it?
             ## What are the commands to start and stop the application?
@@ -84,7 +82,7 @@ jobs:
           github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: 'module4_task1/dist'
+          publish-dir: '${{ github.workflow }}/dist'
           production-branch: main
           enable-pull-request-comment: true
           enable-commit-comment: true
