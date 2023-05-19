@@ -19,7 +19,7 @@ build:	## Generate the source code of the application to a binary.
 build-docker:	## Build docker image awesome:build
 	docker build -t awesome:build -f .build/Dockerfile .
 
-docker-tests:
+docker-tests:   ## Test docker image awesome:build
 	docker run --rm -v $(PWD):/app -w /app awesome:build container-structure-test test --image awesome:build ./.build/cst.yml
 
 run:	## Run the application in background by executing the binary.
