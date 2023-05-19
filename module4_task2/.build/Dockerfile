@@ -11,7 +11,6 @@ SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 RUN apk update && \
 rm -rf /var/lib/apt/lists/*
 
-ENV NODE_VERSION=16.13.0
 # hadolint ignore=DL3018
 RUN apk add --no-cache curl zip bash
 
