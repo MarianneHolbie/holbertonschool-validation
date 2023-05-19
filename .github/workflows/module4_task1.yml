@@ -82,7 +82,7 @@ jobs:
           github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: '${{ github.workflow }}/dist'
+          publish-dir: './${{ github.workflow }}/dist'
           production-branch: main
           enable-pull-request-comment: true
           enable-commit-comment: true
