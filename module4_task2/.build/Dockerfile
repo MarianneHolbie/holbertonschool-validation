@@ -29,3 +29,8 @@ RUN apk add --no-cache hugo
 RUN curl -sSfL -o /usr/local/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 \
     && chmod +x /usr/local/bin/container-structure-test
 
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy everything from the current directory to the PWD (Present Working Directory) inside the container
+COPY . ..
