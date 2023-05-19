@@ -20,5 +20,3 @@ RUN curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_exte
 RUN apt install ./hugo.deb
 RUN apt-get update -y && apt-get install -y docker.io
 RUN npm install -g markdownlint-cli
-RUN make build
-RUN make package
