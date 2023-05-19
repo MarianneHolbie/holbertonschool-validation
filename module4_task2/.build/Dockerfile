@@ -11,7 +11,7 @@ RUN apk update && \
 rm -rf /var/lib/apt/lists/*
 
 ENV NODE_VERSION=16.13.0
-RUN apk add --no-cache curl=* zip=* && \
+RUN apk add --no-cache curl~=* zip~=* && \
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 ENV NODE_VERSION=18.16.0
@@ -27,7 +27,7 @@ curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended
 RUN apk add --no-cache ./hugo.deb
 # hadolint ignore=DL3059
 RUN apk update && \
-apk add --no-cache docker.io=* && \
+apk add --no-cache docker.io~=* && \
 RUN npm install -g markdownlint-cli@*
 
 # hadolint ignore=DL3059
