@@ -4,6 +4,8 @@ FROM golang:1.15.8-alpine
 # Env
 ENV PATH="/usr/local/go/bin:${PATH}"
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # To set the working directory for any commands that follow in the Dockerfile.
 WORKDIR /module4_task2
 # To copy over files or directories from a specific location.
@@ -13,10 +15,9 @@ RUN apt-get update && \
 rm -rf /var/lib/apt/lists/*
 
 ENV NODE_VERSION=16.13.0
-RUN apt-get install -y --no-install-recommends curl=* zip=*
+RUN apt-get install -y --no-install-recommends curl=* zip=* && \
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 ENV NODE_VERSION=18.16.0
 
