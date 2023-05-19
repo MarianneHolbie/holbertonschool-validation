@@ -4,7 +4,7 @@ FROM golang:1.15.8-alpine
 # Env
 ENV PATH="/usr/local/go/bin:${PATH}"
 
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # To install any applications and packages required for your container.
 RUN apk update && \
@@ -34,4 +34,4 @@ RUN npm install -g markdownlint-cli@*
 # Cleanup
 RUN apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]
