@@ -46,8 +46,8 @@ jobs:
         working-directory: module4_task1
 
       - name: tests
-        run: |
-          cd module4_task1/ && make test
+        run: make test
+        working-directory: module4_task1
 
       - name: archieve ZIP file artifact only if all tests sucess
         if: ${{github.ref=='refs/heads/main'}}
