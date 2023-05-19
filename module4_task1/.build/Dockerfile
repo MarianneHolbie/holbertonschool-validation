@@ -1,5 +1,5 @@
 # parent image
-FROM golang:1.15.8-buster
+FROM golang:latest
 
 # Env
 ENV PATH="/usr/local/go/bin:${PATH}"
