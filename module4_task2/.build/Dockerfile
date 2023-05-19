@@ -13,7 +13,7 @@ rm -rf /var/lib/apt/lists/*
 ENV NODE_VERSION=16.13.0
 RUN apk add --no-cache curl zip &&\
 touch ~/.bashrc && chmod +x ~/.bashrc &&\
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh
 
 ENV NODE_VERSION=18.16.0
 RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm install node &&\
