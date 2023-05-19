@@ -13,9 +13,8 @@ rm -rf /var/lib/apt/lists/*
 ENV NODE_VERSION=16.13.0
 # hadolint ignore=DL3018
 RUN apk add --no-cache curl zip &&\
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh
-
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
+. ~/.bashrc
 ENV NODE_VERSION=18.16.0
 RUN nvm install ${NODE_VERSION} && \
 nvm use v${NODE_VERSION} && \
