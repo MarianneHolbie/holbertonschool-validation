@@ -16,7 +16,6 @@ rm -rf /var/lib/apt/lists/*
 
 ENV NODE_VERSION=16.13.0
 RUN apt-get install -y --no-install-recommends curl=* zip=* && \
-
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 ENV NODE_VERSION=18.16.0
