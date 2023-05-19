@@ -6,8 +6,6 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# To set the working directory for any commands that follow in the Dockerfile.
-WORKDIR /module4_task2
 # To copy over files or directories from a specific location.
 COPY . .
 # To install any applications and packages required for your container.
