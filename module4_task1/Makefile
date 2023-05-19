@@ -11,16 +11,14 @@ HUGO=hugo
 # -w work directory
 
 build:	## Generate the source code of the application to a binary.
-	make build-docker
+	make lint
 	docker run --rm -v $(PWD):/app -w /app awesome:build go mod tidy
-	docker run --rm -v $(PWD):/app -w /app awesome:build make build-site
-	docker run --rm -v $(PWD):/app -w /app awesome:build make go build -o $(TARGET)
+	make check
+	docker run --rm -v $(PWD):/app -w /app awesome:build hugo
+	docker run --rm -v $(PWD):/app -w /app awesome:build go build -o $(TARGET)
 
 build-docker:	## Build docker image awesome:build
 	docker build -t awesome:build -f .build/Dockerfile .
-
-build-site: ## Build the website
-	hugo
 
 run:	## Run the application in background by executing the binary.
 	./$(TARGET) >./$(TARGET).log 2>&1 &
@@ -49,11 +47,12 @@ integration-tests: ## Run integration tests
 
 
 lint:	## Lint go markdown code
+	docker run awesome:build golangci-lint run
 	docker run awesome:build sh -c "markdownlint -f DEPLOY.md README.md || echo 'Lint Failed'"
 
 check:	## Lint markdonw source, check dead links
-	markdownlint ./content/posts/*.md
-	find content -name \*.md -print0 | xargs -0 -n1 markdown-link-check
+	docker run awesome:build markdownlint ./content/posts/*.md
+	docker run awesome:build sh -c "find content -name \*.md -print0 | xargs -0 -n1 markdown-link-check"
 
 validate:	## Validate the file dist/index.html using the command line Holberton’s W3C Validator.
 	docker run awesome:build sh -c "python3 ./w3c_validator.py ./dist/index.html || true"

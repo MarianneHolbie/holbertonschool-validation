@@ -20,6 +20,5 @@ RUN curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_exte
 RUN apt install ./hugo.deb
 RUN apt-get update -y && apt-get install -y docker.io
 RUN npm install -g markdownlint-cli
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.29.0
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
