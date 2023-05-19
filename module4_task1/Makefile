@@ -30,7 +30,7 @@ stop:	## Stop the application.
 	@pkill $(TARGET)
 
 clean:	## Stop the application. Delete the binary and the log file.
-	@$(RM) $(TARGET) $(TARGET).log $(COVERAGE)-units.out $(COVERAGE)-integrations.out dist/ *~
+	@sudo $(RM) $(TARGET) $(TARGET).log $(COVERAGE)-units.out $(COVERAGE)-integrations.out dist/ *~
 
 test:	## Test the application.
 	$(MAKE) unit-tests
