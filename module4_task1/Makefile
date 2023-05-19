@@ -19,7 +19,7 @@ build-docker:	## Build docker image awesome:build
 	docker build -t awesome:build -f .build/Dockerfile .
 
 build-site: ## Build the website
-	hugo . dist
+	hugo . ./dist
 
 run:	## Run the application in background by executing the binary.
 	./$(TARGET) >./$(TARGET).log 2>&1 &
