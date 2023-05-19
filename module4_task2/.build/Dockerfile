@@ -30,6 +30,3 @@ RUN apk add --no-cache hugo
 RUN curl -sSfL -o /usr/local/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 \
     && chmod +x /usr/local/bin/container-structure-test
 
-# hadolint ignore=DL3059
-# Cleanup
-RUN apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
