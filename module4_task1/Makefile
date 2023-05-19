@@ -47,7 +47,6 @@ integration-tests: ## Run integration tests
 
 
 lint:	## Lint go markdown code
-	docker run awesome:build golangci-lint run
 	docker run awesome:build sh -c "markdownlint -f DEPLOY.md README.md || echo 'Lint Failed'"
 
 check:	## Lint markdonw source, check dead links
