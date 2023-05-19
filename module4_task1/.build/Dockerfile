@@ -1,5 +1,9 @@
 # parent image
 FROM golang:1.15.8-buster
+
+# Env
+ENV PATH="/usr/local/go/bin:${PATH}"
+
 # To set the working directory for any commands that follow in the Dockerfile.
 WORKDIR /module4_task1
 # To copy over files or directories from a specific location.
