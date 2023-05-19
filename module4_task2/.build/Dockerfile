@@ -7,11 +7,11 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # To install any applications and packages required for your container.
-RUN apt-get update && \
+RUN apk update && \
 rm -rf /var/lib/apt/lists/*
 
 ENV NODE_VERSION=16.13.0
-RUN apt-get install -y --no-install-recommends curl=* zip=* && \
+RUN apk install -y --no-install-recommends curl=* zip=* && \
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 ENV NODE_VERSION=18.16.0
@@ -24,15 +24,15 @@ RUN node --version && \
 npm --version && \
 curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_extended_0.84.0_Linux-64bit.deb -o hugo.deb
 # hadolint ignore=DL3059
-RUN apt-get install -y --no-install-recommends ./hugo.deb
+RUN apk install -y --no-install-recommends ./hugo.deb
 # hadolint ignore=DL3059
-RUN apt-get update -y && \
+RUN apk update -y && \
 rm -rf /var/lib/apt/lists/* && \
-apt-get install -y --no-install-recommends docker.io=* && \
+apk install -y --no-install-recommends docker.io=* && \
 RUN npm install -g markdownlint-cli@*
 
 # hadolint ignore=DL3059
 # Cleanup
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["/bin/sh"]
