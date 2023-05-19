@@ -11,7 +11,7 @@ RUN apk update && \
 rm -rf /var/lib/apt/lists/*
 
 ENV NODE_VERSION=16.13.0
-RUN apk add --no-cache curl zip npm
+RUN apk add --no-cache curl zip nvm
 
 ENV NODE_VERSION=18.16.0
 
