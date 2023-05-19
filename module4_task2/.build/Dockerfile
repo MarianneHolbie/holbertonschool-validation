@@ -4,7 +4,7 @@ FROM golang:1.15.8-alpine
 # Env
 ENV PATH="/usr/local/go/bin:${PATH}"
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # To install any applications and packages required for your container.
 RUN apk update && \
@@ -13,8 +13,8 @@ rm -rf /var/lib/apt/lists/*
 ENV NODE_VERSION=16.13.0
 # hadolint ignore=DL3018
 RUN apk add --no-cache curl zip &&\
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
-. ~/.bashrc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | sh && \
+. ~/.shrc
 ENV NODE_VERSION=18.16.0
 RUN nvm install ${NODE_VERSION} && \
 nvm use v${NODE_VERSION} && \
@@ -34,4 +34,4 @@ RUN npm install -g markdownlint-cli@*
 # Cleanup
 RUN apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
