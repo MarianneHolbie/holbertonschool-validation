@@ -42,7 +42,8 @@ jobs:
         working-directory: module4_task1
 
       - name: packaging
-        run: cd module4_task1 && make package
+        run: make package
+        working-directory: module4_task1
 
       - name: tests
         run: |
