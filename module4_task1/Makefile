@@ -56,7 +56,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	docker run awesome:build sh -c "python3 ./w3c_validator.py ./dist/index.html || true"
 
 package:	## Produce awesome-website.zip containing awesome-api and dist directory
-	zip -FSr awesome-website.zip . -i dist/ awesome-api
+	zip -FSr awesome-website.zip awesome-api dist
 
 help:	## Show this help usage.
 	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)
