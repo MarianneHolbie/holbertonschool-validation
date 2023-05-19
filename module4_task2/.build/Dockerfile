@@ -4,7 +4,7 @@ FROM golang:1.15.8-alpine
 # Env
 ENV PATH="/usr/local/go/bin:${PATH}"
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # To copy over files or directories from a specific location.
 COPY . .
