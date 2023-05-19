@@ -6,8 +6,6 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 
 SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
-# To copy over files or directories from a specific location.
-COPY . .
 # To install any applications and packages required for your container.
 RUN apt-get update && \
 rm -rf /var/lib/apt/lists/*
@@ -37,4 +35,4 @@ RUN npm install -g markdownlint-cli@*
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
