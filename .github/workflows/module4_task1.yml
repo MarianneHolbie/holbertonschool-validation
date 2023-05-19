@@ -39,7 +39,6 @@ jobs:
           make lint
           make unit-tests
           make integration-tests
-          make clean
 
       - name: packaging
         run: make package
