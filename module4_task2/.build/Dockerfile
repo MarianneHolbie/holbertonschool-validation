@@ -18,7 +18,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install hadolint
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
-    && chmod +x /usr/local/bin/hadolint
+    && chmod a+x /usr/local/bin/hadolint
 
 # Install hugo
 # hadolint ignore=DL3018
