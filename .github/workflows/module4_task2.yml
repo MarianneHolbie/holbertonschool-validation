@@ -28,21 +28,15 @@ jobs:
       # clone repo
       - uses: actions/checkout@v3
 
-      # docker image
-      - name: create docker image
-        run: make build-docker
-
       - name: test Makefile
         run: |
           make help
+          make build-docker
           make build
           make lint
           make unit-tests
           make integration-tests
-          
-      # test docker image
-      - name: test docker image
-        run: make docker-tests
+          make docker-tests
 
       - name: packaging
         run: make package
