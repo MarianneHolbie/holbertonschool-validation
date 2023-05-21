@@ -50,7 +50,7 @@ integration-tests: ## Run integration tests
 
 lint:	## Lint go markdown code
 	docker container run --rm -i hadolint/hadolint < .build/Dockerfile
-	docker run awesome:build sh -c "markdownlint -f DEPLOY.md README.md || echo 'Lint Failed'"
+	docker run awesome:build markdownlint -f DEPLOY.md
 
 check:	## Lint markdonw source, check dead links
 	markdownlint ./content/posts/*.md
