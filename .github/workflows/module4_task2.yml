@@ -32,10 +32,6 @@ jobs:
       - name: create docker image
         run: make build-docker
 
-      # test docker image
-      - name: test docker image
-        run: make docker-tests
-
       - name: test Makefile
         run: |
           make help
@@ -43,6 +39,10 @@ jobs:
           make lint
           make unit-tests
           make integration-tests
+          
+      # test docker image
+      - name: test docker image
+        run: make docker-tests
 
       - name: packaging
         run: make package
