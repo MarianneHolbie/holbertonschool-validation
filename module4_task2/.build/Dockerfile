@@ -20,11 +20,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 \
     && chmod a+x /usr/local/bin/hadolint
 
-# Install hugo, npm, markdownlint
+# Install hugo
 # hadolint ignore=DL3018
-RUN apk add --no-cache hugo@v0.84.0 &&\
-apk add --no-cache npm@v7.24.2 &&\
-npm install -g markdownlint-cli@v0.26.0
+RUN apk add --no-cache hugo
 
 # container-structure-test
 # hadolint ignore=DL3018
