@@ -46,7 +46,7 @@ unit-tests: ## Run unit tests
 
 
 integration-tests: ## Run integration tests
-	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build go test -v -coverprofile=coverage-integrations.out
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build apk add --no-cache build-base && go test -v -coverprofile=coverage-integrations.out
 
 
 lint:	## Lint go markdown code
