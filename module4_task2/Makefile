@@ -20,7 +20,7 @@ build-docker:	## Build docker image awesome:build
 	docker build -t awesome:build -f .build/Dockerfile .
 
 docker-tests:   ## Test docker image awesome:build
-	docker run --rm -v $(PWD):/app -w /app awesome:build container-structure-test test --image awesome:build --config .build/cst.yml
+	docker run --rm -v $(PWD):/app -v /var/run/docker.sock:/var/run/docker.sock -w /app awesome:build container-structure-test test --image awesome:build --config .build/cst.yml
 
 run:	## Run the application in background by executing the binary.
 	./$(TARGET) >./$(TARGET).log 2>&1 &
