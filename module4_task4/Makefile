@@ -6,7 +6,7 @@ YQ=yq
 MARKDOWN=markdownlint
 
 docker-tests:## Build the Docker image
-	docker build -t awesome:build -f build/Dockerfile .
+	container-structure-test test --image awesome:${IMAGE_TAG} --config cst.yml
 
 build: build-docker ## Build the website and api
 	docker run --rm -v $(PWD):/app -w /app awesome:build make build-website
