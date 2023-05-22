@@ -41,11 +41,12 @@ test:	## Test the application.
 	$(MAKE) validate
 
 unit-tests: ## Run unit tests
-	docker run awesome:build sh -c "go test -v -short -coverprofile=coverage-units.out" 
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build go test -v -short -coverprofile=coverage-units.out
+
 
 
 integration-tests: ## Run integration tests
-	docker run awesome:build sh -c "go test -v -coverprofile=coverage-integrations.out"
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build go test -v -coverprofile=coverage-integrations.out
 
 
 lint:	## Lint go markdown code
