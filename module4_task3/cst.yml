@@ -3,6 +3,6 @@ schemaVersion: 2.0.0
 commandTests:
   - name: "files is present"
     command: "ls"
-    expectedOutput: ["awesome-api", "dist"]
+    expectedOutput: ["tmp", "usr"]
 metadataTest:
   entrypoint: []
