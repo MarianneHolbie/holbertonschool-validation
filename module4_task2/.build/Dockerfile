@@ -24,10 +24,10 @@ RUN curl -sSfL -o /usr/local/bin/hadolint https://github.com/hadolint/hadolint/r
 # hadolint ignore=DL3018
 RUN apk add --no-cache hugo
 
-# Install Golangcilin, npm and markdownlint
+# Install Golangcilinand markdownlint
 ARG GOLANGCI_VERSION: "1.15.0"
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0 \
-&& npm install markdownlint-cli@0.26.0 markdown-link@3.8.6
+&& npm install markdownlint-cli@0.26.0 markdown-link@3.8.*
 
 
 # container-structure-test
