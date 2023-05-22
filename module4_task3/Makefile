@@ -15,9 +15,7 @@ endif
 # -w work directory
 
 build:	## Generate the source code of the application to a binary.
-	make lint
-	docker run --rm -v $(PWD):/app -w /app awesome:build go mod tidy
-	docker run --rm -v $(PWD):/app -w /app awesome:build hugo
+	docker run --rm -v $(PWD):/app -w /app awesome:build hugo --source . --destination dist
 	docker run --rm -v $(PWD):/app -w /app awesome:build go build -o $(TARGET)
 
 build-docker:	## Build docker image awesome:build
