@@ -26,11 +26,7 @@ RUN apk add --no-cache hugo
 
 # Install Golangcilint and markdownlint
 ARG GOLANGCI_VERSION: "1.15.0"
-RUN curl --output golangci-lint.tar.gz \
-https://github.com/golangci/golangci-lint/releases/download/v1.15.0/golangci-lint-1.15.0-darwin-amd64.tar.gz \
-&& tar -xvf golangci-lint.tar.gz \
-&& ./configure \
-&& rm -f /tmp/golangci-lint.tar.gz \
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0
 && npm install markdownlint-cli@0.26.0 markdown-link@3.8.6
 
 
