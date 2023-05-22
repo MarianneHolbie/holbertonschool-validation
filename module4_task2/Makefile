@@ -41,7 +41,7 @@ test:	## Test the application.
 	$(MAKE) validate
 
 unit-tests: ## Run unit tests
-	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build go test -v -short -coverprofile=coverage-units.out
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app awesome:build apk add --no-cache build-base && go test -v -short -coverprofile=coverage-units.out
 
 
 
