@@ -44,17 +44,16 @@ markdownlint:## Build the Docker image
 	$(MARKDOWN) README.md
 	$(MARKDOWN) DEPLOY.md
 
-integration-tests: ## Spin up a server and check the localhost url
-	docker run awesome:build sh -c "hugo; make _clean; make _integration-tests;"
-	make _integration-tests;
-
-_integration-tests:## Build the Docker image
-	touch coverage-integrations.out
+test:	## Tests API using go test
+	-make build
+	make unit-tests
+	make integration-tests
 
 unit-tests: ## Runs different makefile recipes
-	docker run awesome:build sh -c "hugo; make _clean; make _unit-tests;"
-	touch coverage-units.out
+	go test -v -short -coverprofile=coverage-units.out
 	
+integration-tests:	## Runs integration test using go test
+	go test -v -coverprofile=coverage-integrations.out
 
 validate: ## Tests ensure it is in correct dir
 	pwd
