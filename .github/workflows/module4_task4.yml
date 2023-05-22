@@ -66,9 +66,9 @@ jobs:
       - run: gh release create v1.0.1 --title "v1.0.1"
             --notes DEPLOY.md 2>/dev/null || echo "OK"
 
-     - name: akhileshns/heroku-deploy
-       uses: akhileshns/heroku-deploy@v3.12.12
-       with:
+      - name: akhileshns/heroku-deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
           HEROKU_APP_NAME: my-web-hugo
           HEROKU_EMAIL: ${{secrets.HEROKU_EMAIL}}
