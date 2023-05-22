@@ -4,8 +4,8 @@ schemaVersion: '2.0.0'
 metadataTest:
   # Image has expected default metadata
   entrypoint: []
-  cmd: ["markdownlint -f DEPLOY.md"]
-  workdir: "/module4_task2"
+  cmd: ["/app/markdownlint", "-f", "DEPLOY.md"]
+  workdir: "/app/module4_task2"
 
 fileExistenceTests:
   # Main binary exists
