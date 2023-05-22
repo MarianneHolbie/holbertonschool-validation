@@ -30,7 +30,8 @@ jobs:
 
       - name: test Makefile
         run: |
-          curl -sSfL -o container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+          curl -sSfL -o container-structure-test
+          https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
           chmod +x container-structure-test
           mkdir -p $HOME/bin
           mv container-structure-test $HOME/bin/
