@@ -50,6 +50,7 @@ integration-tests: ## Run integration tests
 
 
 lint:	## Lint go markdown code
+	make build-docker
 	docker container run --rm -i hadolint/hadolint < .build/Dockerfile
 	docker run awesome:build markdownlint -f DEPLOY.md
 
