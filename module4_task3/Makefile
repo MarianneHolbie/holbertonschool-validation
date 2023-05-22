@@ -66,6 +66,7 @@ validate:	## Validate the file dist/index.html using the command line Holbertonâ
 	docker run awesome:build sh -c "python3 ./w3c_validator.py ./dist/index.html || true"
 
 package:	## Produce awesome-website.zip containing awesome-api and dist directory
+	-make build
 	docker build -t awesome:${IMAGE_TAG} .
 	docker save -o awesome_image.tar awesome:${IMAGE_TAG}
 	zip -FSr awesome-website.zip awesome-api dist awesome_image.tar
