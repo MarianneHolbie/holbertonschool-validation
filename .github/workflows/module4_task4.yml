@@ -1,0 +1,72 @@
+---
+# Workflow name
+name: module4_task4
+# action who declench workflow
+"on":
+  push:
+    branches:
+      - main
+    tags:
+      - "1.0.1"
+  # programmate time of workflow execution
+  schedule:
+    - cron: '0 0 * * *'
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+# all action in this workflow
+jobs:
+  builds:
+    permissions: write-all
+    # env of execution
+    defaults:
+      run:
+        working-directory: ./${{ github.workflow }}
+    runs-on: ubuntu-22.04
+
+    steps:
+      # clone repo
+      - uses: actions/checkout@v3
+
+      - name: build docker image
+        run: |
+          docker build -t my-app
+
+      - name: akhileshns/heroku-deploy
+        run: |
+          docker login --username=arrue.marianne@gmail.com \
+          --password=${{secrets.HEROKU_TOKEN}}\
+                       registry.heroku.com
+          docker tag my-app registry.heroku.com/my-web-hugo/web
+          docker push registry.heroku.com/my-web-hugo/web
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+          HEROKU_APP_NAME: my-web-hugo
+          HEROKU_EMAIL: ${{secrets.HEROKU_EMAIL}}
+
+      - name: archieve ZIP file artifact only if all tests sucess
+        if: ${{ success()}}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Saving the zip file
+          path: |
+            ${{ github.workflow }}/awesome-website.zip
+
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/1.0.1')
+        with:
+
+          files: |
+            ${{ github.workflow }}/awesome-website.zip
+            ${{ github.workflow }}/DEPLOY.md
+          body: |
+            ## What is in the archive and how to unarchive it?
+            ## What are the commands to start and stop the application?
+            ## How to customize where the application logs are written?
+            ## How to “quickly” verify that the application is running?
+            ## Create a release with the archive triggered by a tag
+      # create github release gh release create [<tag>] [<files>...]
+      - run: gh release create v1.0.1 --title "v1.0.1"
+            --notes DEPLOY.md 2>/dev/null || echo "OK"
