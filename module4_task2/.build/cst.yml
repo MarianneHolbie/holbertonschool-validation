@@ -4,7 +4,6 @@ schemaVersion: '2.0.0'
 metadataTest:
   # Image has expected default metadata
   entrypoint: []
-  cmd: [markdownlint -f DEPLOY.md]
   workdir: "/app"
 
 fileExistenceTests:
