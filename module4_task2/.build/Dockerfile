@@ -28,7 +28,7 @@ RUN apk add --no-cache hugo
 ARG GOLANGCI_VERSION: "1.15.0"
 RUN curl --output golangci-lint.tar.gz \
 https://github.com/golangci/golangci-lint/releases/download/v1.15.0/golangci-lint-1.15.0-darwin-amd64.tar.gz \
-&& tar -xf golangci-lint.tar.gz \
+&& tar -xvf golangci-lint.tar.gz \
 && ./configure \
 && rm -f /tmp/golangci-lint.tar.gz \
 && npm install markdownlint-cli@0.26.0 markdown-link@3.8.6
