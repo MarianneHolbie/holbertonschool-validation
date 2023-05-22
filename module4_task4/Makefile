@@ -13,7 +13,7 @@ docker-tests:## Build the Docker image
 	container-structure-test test --image awesome:${IMAGE_TAG} --config cst.yml
 
 go-build:	## Builds the API binary file using go
-	go mod init github.com/MarianneHolbie/awesome-api && go get github.com/gorilla/mux && go build
+	go build
 
 hugo-build:		## Builds a website using gohugo on the dist folder
 	hugo
