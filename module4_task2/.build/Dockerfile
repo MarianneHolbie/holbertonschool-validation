@@ -42,7 +42,7 @@ WORKDIR /app
 COPY . ..
 
 # Install markdownlint and run the command
-RUN npm install -g markdownlint-cli
+RUN npm install -g markdownlint-cli@0.26.0
 
 # Set the command to execute the markdownlint command
 CMD ["markdownlint", "-f", "DEPLOY.md"]
