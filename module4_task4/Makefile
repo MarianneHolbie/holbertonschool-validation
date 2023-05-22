@@ -4,6 +4,10 @@ SHELLCHECK=shellcheck
 YAMLLINT=yamllint
 YQ=yq
 MARKDOWN=markdownlint
+IMAGE_TAG=$(shell git tag | tail -n 1)
+ifeq ($(strip $(IMAGE_TAG)),)
+IMAGE_TAG=$(shell git rev-parse --abbrev-ref HEAD)
+endif
 
 docker-tests:## Build the Docker image
 	container-structure-test test --image awesome:${IMAGE_TAG} --config cst.yml
