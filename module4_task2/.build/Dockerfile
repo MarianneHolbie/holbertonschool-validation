@@ -26,7 +26,9 @@ RUN apk add --no-cache hugo
 
 # Install Golangcilinand markdownlint
 ARG GOLANGCI_VERSION: "1.15.0"
+ARG SHA256="fff226bdf9ebcc08db47fb90ee144dd770120b35c2b1cbbb46e932a650cfe232"
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.29.0 \
+&& sha256sum /usr/local/bin/hadolint | grep -q "${SHA256}" \
 && npm install markdownlint-cli@0.26.0 markdown-link-check@3.8.6
 
 
