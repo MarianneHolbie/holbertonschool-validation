@@ -28,21 +28,16 @@ jobs:
       # clone repo
       - uses: actions/checkout@v3
 
-      - name: build docker image
+      - name: test Makefile
         run: |
-          docker build -t my-app
-
-      - name: akhileshns/heroku-deploy
-        run: |
-          docker login --username=arrue.marianne@gmail.com \
-          --password=${{secrets.HEROKU_TOKEN}}\
-                       registry.heroku.com
-          docker tag my-app registry.heroku.com/my-web-hugo/web
-          docker push registry.heroku.com/my-web-hugo/web
-        env:
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-          HEROKU_APP_NAME: my-web-hugo
-          HEROKU_EMAIL: ${{secrets.HEROKU_EMAIL}}
+          curl -sSfL -o container-structure-test \
+          https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+          chmod +x container-structure-test
+          mkdir -p $HOME/bin
+          mv container-structure-test $HOME/bin/
+          export PATH=$PATH:$HOME/bin
+          make package
+          make docker-tests
 
       - name: archieve ZIP file artifact only if all tests sucess
         if: ${{ success()}}
@@ -70,3 +65,11 @@ jobs:
       # create github release gh release create [<tag>] [<files>...]
       - run: gh release create v1.0.1 --title "v1.0.1"
             --notes DEPLOY.md 2>/dev/null || echo "OK"
+
+     - name: akhileshns/heroku-deploy
+       uses: akhileshns/heroku-deploy@v3.12.12
+       with:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+          HEROKU_APP_NAME: my-web-hugo
+          HEROKU_EMAIL: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
