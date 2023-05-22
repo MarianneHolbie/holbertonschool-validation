@@ -41,5 +41,8 @@ WORKDIR /app
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . ..
 
+# Install markdownlint and run the command
+RUN npm install -g markdownlint-cli
+
 # Set the command to execute the markdownlint command
-CMD ["/node_modules/.bin/markdownlint"]
+CMD ["markdownlint", "-f", "DEPLOY.md"]
