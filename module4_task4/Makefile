@@ -12,7 +12,7 @@ endif
 docker-tests:## Build the Docker image
 	container-structure-test test --image awesome:${IMAGE_TAG} --config cst.yml
 
-build: build-docker ## Build the website and api
+build: ## Build the website and api
 	docker run --rm -v $(PWD):/app -w /app awesome:build make build-website
 	docker run --rm -v $(PWD):/app -w /app awesome:build go build -o awesome-api
 
