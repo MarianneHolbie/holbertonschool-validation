@@ -6,7 +6,7 @@ WORKDIR /app
 
 # copy file
 COPY ./dist/ ./dist/
-COPY ./awesome-api
+COPY ./awesome-api .
 
 # entrypoint
 ENTRYPOINT ["/app/awesome-api"]
