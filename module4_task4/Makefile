@@ -53,9 +53,9 @@ validate: ## Tests ensure it is in correct dir
 	pwd
 
 package: ## Creates a zip archive of the dist dir api binary.
-	make build
-	zip awesome-website.zip dist/index.html
-	zip awesome-api.zip awesome-api
+	docker build -t awesome:${IMAGE_TAG} .
+	docker save -o awesome_image.tar awesome:${IMAGE_TAG}
+	zip awesome-website.zip awesome-api dist/ awesome_image.tar
 
 .SILENT:
 help: ## Target check
