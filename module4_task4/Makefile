@@ -12,12 +12,15 @@ endif
 docker-tests:## Build the Docker image
 	container-structure-test test --image awesome:${IMAGE_TAG} --config cst.yml
 
-build: ## Build the website and api
-	docker run --rm -v $(PWD):/app -w /app awesome:build make build-website
-	docker run --rm -v $(PWD):/app -w /app awesome:build go build -o awesome-api
+go-build:	## Builds the API binary file using go
+	go mod init github.com/Apinedas/awesome-api && go get github.com/gorilla/mux && go build
 
-build-website:## Build the Docker image
-	hugo --source . --destination dist
+hugo-build:		## Builds a website using gohugo on the dist folder
+	hugo
+
+build: 	## Builds all that is needed for website
+	-make go-build
+	make hugo-build
 
 post: ## Creates a new post with the title changed to the ENV value.
 	$(HUGO) new posts/$(POST_NAME).md
