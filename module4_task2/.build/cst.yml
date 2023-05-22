@@ -27,4 +27,5 @@ commandTests:
   - name: hugo version
     command: hugo
     args: ["version"]
-    expectedOutput: ["Hugo Static Site Generator v0.79.1/extended linux/amd64 BuildDate: unknown"]
+    expectedOutput: ["Hugo Static Site Generator v0.79.1/extended
+      linux/amd64 BuildDate: unknown"]
